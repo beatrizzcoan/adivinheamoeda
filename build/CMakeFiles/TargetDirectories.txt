@@ -1,0 +1,3 @@
+/home/aluno/adivinheamoeda/build/CMakeFiles/server.dir
+/home/aluno/adivinheamoeda/build/CMakeFiles/edit_cache.dir
+/home/aluno/adivinheamoeda/build/CMakeFiles/rebuild_cache.dir
