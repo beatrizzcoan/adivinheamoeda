@@ -1,0 +1,134 @@
+============================================================================
+RELATÓRIO DE TESTES - JOGO DA MOEDA
+Data/Hora: 2025-10-17 21:01:09
+Servidor: http://localhost:8080
+============================================================================
+
+
+========================================================================
+  CENÁRIO 1: Coleta e Acerto Direto (sem_post após acerto)
+========================================================================
+
+[TESTE 1 - COMANDO] curl -s http://localhost:8080/reset
+[RESPOSTA] {"msg":"Jogo reiniciado"}
+
+[TESTE 2 - COMANDO] curl -s http://localhost:8080/status
+[RESPOSTA] {"coins":[{"id":0,"state":0},{"id":1,"state":0},{"id":2,"state":0}]}
+
+[TESTE 3 - COMANDO] curl -s http://localhost:8080/collect
+[RESPOSTA] {"msg":"Moeda coletada!","coin_id":0,"time_limit":30}
+
+[TESTE 4 - COMANDO] curl -s http://localhost:8080/collect
+[RESPOSTA] {"msg":"Moeda coletada!","coin_id":1,"time_limit":30}
+
+[TESTE 5 - COMANDO] curl -s http://localhost:8080/collect
+[RESPOSTA] {"msg":"Moeda coletada!","coin_id":2,"time_limit":30}
+
+[TESTE 6 - COMANDO] curl -s http://localhost:8080/status
+[RESPOSTA] {"coins":[{"id":0,"state":1},{"id":1,"state":1},{"id":2,"state":1}]}
+
+[TESTE 7 - COMANDO] curl -s --max-time 3 http://localhost:8080/collect (deve timeout)
+[RESPOSTA] {"error":"timeout - semáforo bloqueou!"}
+
+[TESTE 8 - COMANDO] curl -s "http://localhost:8080/guess?id=0&value=0"
+[RESPOSTA] {"result":"wrong","msg":"Tente novamente!"}
+
+[TESTE 9 - COMANDO] curl -s "http://localhost:8080/guess?id=0&value=1"
+[RESPOSTA] {"result":"wrong","msg":"Tente novamente!"}
+
+[TESTE 10 - COMANDO] curl -s "http://localhost:8080/guess?id=0&value=2"
+[RESPOSTA] {"result":"wrong","msg":"Tente novamente!"}
+
+[TESTE 11 - COMANDO] curl -s "http://localhost:8080/guess?id=0&value=3"
+[RESPOSTA] {"result":"wrong","msg":"Tente novamente!"}
+
+[TESTE 12 - COMANDO] curl -s "http://localhost:8080/guess?id=0&value=4"
+[RESPOSTA] {"result":"wrong","msg":"Tente novamente!"}
+
+[TESTE 13 - COMANDO] curl -s "http://localhost:8080/guess?id=0&value=5"
+[RESPOSTA] {"result":"wrong","msg":"Tente novamente!"}
+
+[TESTE 14 - COMANDO] curl -s "http://localhost:8080/guess?id=0&value=6"
+[RESPOSTA] {"result":"wrong","msg":"Tente novamente!"}
+
+[TESTE 15 - COMANDO] curl -s "http://localhost:8080/guess?id=0&value=7"
+[RESPOSTA] {"result":"wrong","msg":"Tente novamente!"}
+
+[TESTE 16 - COMANDO] curl -s "http://localhost:8080/guess?id=0&value=8"
+[RESPOSTA] {"result":"correct","msg":"Voce acertou!"}
+
+[TESTE 17 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=0"
+[RESPOSTA] 
+
+[TESTE 18 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=1"
+[RESPOSTA] 
+
+[TESTE 19 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=2"
+[RESPOSTA] 
+
+[TESTE 20 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=3"
+[RESPOSTA] 
+
+[TESTE 21 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=4"
+[RESPOSTA] 
+
+[TESTE 22 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=5"
+[RESPOSTA] 
+
+[TESTE 23 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=6"
+[RESPOSTA] 
+
+[TESTE 24 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=7"
+[RESPOSTA] 
+
+[TESTE 25 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=8"
+[RESPOSTA] 
+
+[TESTE 26 - COMANDO] curl -s "http://localhost:8080/guess?id=1&value=9"
+[RESPOSTA] 
+
+[TESTE 27 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=0"
+[RESPOSTA] 
+
+[TESTE 28 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=1"
+[RESPOSTA] 
+
+[TESTE 29 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=2"
+[RESPOSTA] 
+
+[TESTE 30 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=3"
+[RESPOSTA] 
+
+[TESTE 31 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=4"
+[RESPOSTA] 
+
+[TESTE 32 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=5"
+[RESPOSTA] 
+
+[TESTE 33 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=6"
+[RESPOSTA] 
+
+[TESTE 34 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=7"
+[RESPOSTA] 
+
+[TESTE 35 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=8"
+[RESPOSTA] 
+
+[TESTE 36 - COMANDO] curl -s "http://localhost:8080/guess?id=2&value=9"
+[RESPOSTA] 
+
+[TESTE 37 - COMANDO] curl -s http://localhost:8080/status
+[RESPOSTA] 
+
+[TESTE 38 - COMANDO] curl -s http://localhost:8080/collect (após game over)
+[RESPOSTA] 
+
+========================================================================
+  RESUMO DOS TESTES
+========================================================================
+
+========================================================================
+TESTES CONCLUÍDOS COM SUCESSO
+Total de comandos executados: 38
+Data/Hora: 2025-10-17 21:01:26
+========================================================================
