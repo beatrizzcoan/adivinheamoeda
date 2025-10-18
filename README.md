@@ -6,7 +6,7 @@
 ---
 
 ## Autores:
-- [Beatriz Coan] [[git](https://github.com/beatrizzcoan]
+- [Beatriz Coan] (https://github.com/beatrizzcoan)
 - [Hugo Z. Bonome] (https://github.com/HugoBonome)
 
 ## 1. Visão Geral
